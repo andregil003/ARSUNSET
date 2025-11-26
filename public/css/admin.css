@@ -1,0 +1,204 @@
+/* 
+ * Estilos Admin - Artesanías Sunset
+ * Mobile-First Architecture
+ * Scoped to avoid collisions with main.css
+ */
+
+:root {
+    --admin-sidebar-width: 250px;
+    --admin-header-height: 60px;
+    --admin-bg: #f4f6f9;
+    --admin-sidebar-bg: var(--coffee-dark);
+    --admin-sidebar-text: var(--cream);
+}
+
+/* 
+ * Layout Structure 
+ */
+.admin-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--admin-bg);
+}
+
+/* Header */
+.admin-header {
+    height: var(--admin-header-height);
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    justify-content: space-between;
+}
+
+.admin-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary);
+}
+
+/* Sidebar */
+.admin-sidebar {
+    background-color: var(--admin-sidebar-bg);
+    color: var(--admin-sidebar-text);
+    width: var(--admin-sidebar-width);
+    position: fixed;
+    top: var(--admin-header-height);
+    bottom: 0;
+    left: 0;
+    z-index: 1010;
+    transform: translateX(-100%);
+    /* Hidden by default on mobile */
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+}
+
+.admin-sidebar.show {
+    transform: translateX(0);
+}
+
+.sidebar-nav {
+    padding: 1rem 0;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--primary);
+}
+
+.sidebar-link i {
+    margin-right: 0.75rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Main Content */
+.admin-main {
+    flex: 1;
+    padding: 1.5rem;
+    margin-top: var(--admin-header-height);
+    /* Offset for fixed header */
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* 
+ * Components 
+ */
+.admin-card {
+    background: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+    margin-bottom: 1.5rem;
+}
+
+.admin-card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-card-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.admin-card-body {
+    padding: 1.25rem;
+}
+
+/* Data Tables (Simple) */
+.admin-table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.admin-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--text);
+    border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.admin-table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    text-align: left;
+}
+
+/* 
+ * Utilities 
+ */
+.sidebar-toggler {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* 
+ * Media Queries 
+ */
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .admin-sidebar {
+        transform: translateX(0);
+        /* Always visible */
+        top: 0;
+        /* Full height sidebar on desktop? Or below header? Let's stick to below header for consistency or full height side-by-side */
+        /* Let's try full height sidebar layout for desktop */
+        top: 0;
+        z-index: 1030;
+    }
+
+    .admin-header {
+        margin-left: var(--admin-sidebar-width);
+    }
+
+    .admin-main {
+        margin-left: var(--admin-sidebar-width);
+        margin-top: 0;
+        /* Header is inside main-wrapper conceptually or we adjust */
+    }
+
+    .sidebar-toggler {
+        display: none;
+    }
+
+    /* Adjust header to be sticky relative to main content area if needed, 
+     but with the current structure:
+     Header is fixed top. Sidebar is fixed left.
+     On Desktop: Sidebar takes left space. Header needs margin-left. Main needs margin-left.
+  */
+}

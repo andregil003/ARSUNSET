@@ -47,7 +47,10 @@ app.use(session({
 }));
 
 // View Engine Setup
-app.set('views', path.join(__dirname, '../../views'));
+app.set('views', [
+    path.join(__dirname, '../../views'),
+    path.join(__dirname, '../../src/modules')
+]);
 app.set('view engine', 'ejs');
 
 // Mount Routes (Module Loader)

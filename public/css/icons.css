@@ -1,0 +1,240 @@
+/* 
+ * Sistema de Iconos - Artesanías Sunset
+ * Mapeo de clases semánticas a FontAwesome
+ */
+
+/* Base Icon Style */
+[class^="icon-"],
+[class*=" icon-"] {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    line-height: 1;
+}
+
+/* Fallback text if font fails to load */
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+    /* Content is defined in specific classes */
+}
+
+/* Mapeo Semántico */
+.icon-cart::before {
+    content: "\f07a";
+}
+
+/* fa-shopping-cart */
+.icon-user::before {
+    content: "\f007";
+}
+
+/* fa-user */
+.icon-search::before {
+    content: "\f002";
+}
+
+/* fa-search */
+.icon-menu::before {
+    content: "\f0c9";
+}
+
+/* fa-bars */
+.icon-close::before {
+    content: "\f00d";
+}
+
+/* fa-times */
+.icon-heart::before {
+    content: "\f004";
+}
+
+/* fa-heart */
+.icon-bag::before {
+    content: "\f290";
+}
+
+/* fa-shopping-bag */
+.icon-home::before {
+    content: "\f015";
+}
+
+/* fa-home */
+.icon-tag::before {
+    content: "\f02b";
+}
+
+/* fa-tag */
+.icon-star::before {
+    content: "\f005";
+}
+
+/* fa-star */
+.icon-trash::before {
+    content: "\f1f8";
+}
+
+/* fa-trash */
+.icon-edit::before {
+    content: "\f044";
+}
+
+/* fa-edit */
+.icon-plus::before {
+    content: "\f067";
+}
+
+/* fa-plus */
+.icon-minus::before {
+    content: "\f068";
+}
+
+/* fa-minus */
+.icon-check::before {
+    content: "\f00c";
+}
+
+/* fa-check */
+.icon-logout::before {
+    content: "\f2f5";
+}
+
+/* fa-sign-out-alt */
+.icon-login::before {
+    content: "\f2f6";
+}
+
+/* fa-sign-in-alt */
+.icon-phone::before {
+    content: "\f095";
+}
+
+/* fa-phone */
+.icon-email::before {
+    content: "\f0e0";
+}
+
+/* fa-envelope */
+.icon-location::before {
+    content: "\f3c5";
+}
+
+/* fa-map-marker-alt */
+.icon-box::before {
+    content: "\f466";
+}
+
+/* fa-box-open */
+.icon-truck::before {
+    content: "\f0d1";
+}
+
+/* fa-truck */
+.icon-clock::before {
+    content: "\f017";
+}
+
+/* fa-clock */
+.icon-eye::before {
+    content: "\f06e";
+}
+
+/* fa-eye */
+.icon-eye-slash::before {
+    content: "\f070";
+}
+
+/* fa-eye-slash */
+.icon-filter::before {
+    content: "\f0b0";
+}
+
+/* fa-filter */
+.icon-grid::before {
+    content: "\f00a";
+}
+
+/* fa-th */
+.icon-list::before {
+    content: "\f00b";
+}
+
+/* fa-th-list */
+
+/* Social Media (Brands) */
+.icon-whatsapp {
+    font-family: "Font Awesome 6 Brands";
+    font-weight: 400;
+}
+
+.icon-whatsapp::before {
+    content: "\f232";
+}
+
+.icon-facebook {
+    font-family: "Font Awesome 6 Brands";
+    font-weight: 400;
+}
+
+.icon-facebook::before {
+    content: "\f09a";
+}
+
+.icon-instagram {
+    font-family: "Font Awesome 6 Brands";
+    font-weight: 400;
+}
+
+.icon-instagram::before {
+    content: "\f16d";
+}
+
+.icon-google {
+    font-family: "Font Awesome 6 Brands";
+    font-weight: 400;
+}
+
+.icon-google::before {
+    content: "\f1a0";
+}
+
+/* Tamaños */
+.icon-sm {
+    font-size: 0.875rem;
+}
+
+.icon-md {
+    font-size: 1.25rem;
+}
+
+.icon-lg {
+    font-size: 1.5rem;
+}
+
+.icon-xl {
+    font-size: 2rem;
+}
+
+/* Colores */
+.icon-primary {
+    color: var(--primary);
+}
+
+.icon-secondary {
+    color: var(--secondary);
+}
+
+.icon-accent {
+    color: var(--accent);
+}
+
+.icon-light {
+    color: var(--cream);
+}
+
+.icon-dark {
+    color: var(--coffee-dark);
+}

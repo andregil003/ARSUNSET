@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= locals.title ? `${title} | Artesanías Sunset` : 'Artesanías Sunset' %>
+    </title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="<%= locals.description || 'Artesanías guatemaltecas auténticas' %>">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/icons.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- FontAwesome (CDN Fallback handled in icons.css via local mapping, but we need the font file or CDN) -->
+    <!-- Using CDN for now as per standard practice if local fonts aren't provided in prompt assets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSRF Token for AJAX -->
+    <% if (locals.csrfToken) { %>
+        <meta name="csrf-token" content="<%= csrfToken %>">
+        <% } %>
+</head>
+
+<body class="flex flex-col min-h-screen bg-bg text-text">
+
+    <!-- Header -->
+    <%- include('../partials/header') %>
+
+        <!-- Main Content -->
+        <main class="main-content container">
+            <!-- Flash Messages -->
+            <% if (locals.messages) { %>
+                <% if (messages.error) { %>
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+                        <%= messages.error %>
+                    </div>
+                    <% } %>
+                        <% if (messages.success) { %>
+                            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4"
+                                role="alert">
+                                <%= messages.success %>
+                            </div>
+                            <% } %>
+                                <% } %>
+
+                                    <!-- Page Content -->
+                                    <!-- 
+      This layout expects a 'view' local variable containing the path to the view to render,
+      OR it can be used as a wrapper if the controller handles it.
+      For now, we'll assume the controller renders this layout and passes a 'body' or we include a view.
+      
+      Pattern: The controller renders 'layouts/layoutMain' and passes { view: 'path/to/view' }
+    -->
+                                    <% if (locals.view) { %>
+                                        <%- include('../' + view) %>
+                                            <% } else { %>
+                                                <!-- Fallback or direct content -->
+                                                <%- locals.body || '' %>
+                                                    <% } %>
+        </main>
+
+        <!-- Footer -->
+        <%- include('../partials/footer') %>
+
+            <!-- Scripts -->
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+            <script src="/js/main.js" defer></script>
+
+            <!-- Page Specific Scripts -->
+            <% if (locals.scripts) { %>
+                <% scripts.forEach(script=> { %>
+                    <script src="<%= script %>" defer></script>
+                    <% }) %>
+                        <% } %>
+</body>
+
+</html>

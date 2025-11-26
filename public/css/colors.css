@@ -1,0 +1,121 @@
+/* 
+ * Sistema de Colores - Artesanías Sunset
+ * Mobile-first base
+ */
+
+:root {
+  /* Paleta Base */
+  --jade-light: #A8D8D8;
+  --jade: #7BC4C4;
+  --coffee: #8B4513;
+  --coffee-dark: #2C1810;
+  --terracota: #D97757;
+  --cream: #FFF8F0;
+
+  /* Variables Semánticas */
+  --primary: var(--jade);
+  --secondary: var(--terracota);
+  --accent: var(--coffee);
+  --bg: var(--cream);
+  --text: var(--coffee-dark);
+  --text-light: var(--coffee);
+  
+  /* Feedback */
+  --success: #28a745;
+  --error: #dc3545;
+  --warning: #ffc107;
+  --info: #17a2b8;
+}
+
+/* 
+ * Background Utilities 
+ * Use: class="bg-primary"
+ */
+.bg-primary { background-color: var(--primary) !important; }
+.bg-secondary { background-color: var(--secondary) !important; }
+.bg-cream { background-color: var(--cream) !important; }
+.bg-jade { background-color: var(--jade) !important; }
+.bg-terracota { background-color: var(--terracota) !important; }
+.bg-white { background-color: #ffffff !important; }
+
+/* 
+ * Text Utilities 
+ * Use: class="text-primary"
+ */
+.text-primary { color: var(--primary) !important; }
+.text-secondary { color: var(--secondary) !important; }
+.text-dark { color: var(--text) !important; }
+.text-light { color: var(--text-light) !important; }
+.text-terracota { color: var(--terracota) !important; }
+.text-white { color: #ffffff !important; }
+.text-error { color: var(--error) !important; }
+
+/* 
+ * Button Utilities 
+ * Use: class="btn btn-primary"
+ */
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  color: var(--coffee-dark);
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--jade-light);
+  border-color: var(--jade-light);
+  color: var(--coffee-dark);
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.btn-secondary:hover {
+  background-color: #c06040; /* Darker terracota */
+  border-color: #c06040;
+}
+
+.btn-accent {
+  color: #fff;
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-accent:hover {
+  background-color: var(--coffee-dark);
+  border-color: var(--coffee-dark);
+}
+
+/* 
+ * Border Utilities 
+ * Use: class="border-primary"
+ */
+.border-primary { border: 1px solid var(--primary) !important; }
+.border-secondary { border: 1px solid var(--secondary) !important; }
+
+/*
+ * Breakpoints Documentation
+ * 
+ * Mobile (Default): 0px - 767px
+ * Tablet: 768px - 1023px (@media (min-width: 768px))
+ * Desktop: 1024px+ (@media (min-width: 1024px))
+ */
